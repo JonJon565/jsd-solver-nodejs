@@ -22,7 +22,7 @@ class CloudflareJSDSolver {
         };
         this.sec_ch_ua = sec_ch_ua || "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\"";
     }
-    async generateCF_Clearance(url){
+    async generateCF_Clearance(url, javascriptUrl){
         let urlClassed = new URL(url);
 
         const extraHeaders_html =  {
@@ -56,7 +56,7 @@ class CloudflareJSDSolver {
 
         const html = (await this.browserFetch(urlClassed, { headers: extraHeaders_html, method: "GET" })).body;
         if(!html) throw new Error("body is null");
-        const javascript = (await this.browserFetch(`https://${urlClassed.host}/cdn-cgi/challenge-platform/scripts/jsd/main.js`, { headers: extraHeaders_javascript, method: "GET" })).body;
+        const javascript = (await this.browserFetch(javascriptUrl || `https://${urlClassed.host}/cdn-cgi/challenge-platform/scripts/jsd/main.js`, { headers: extraHeaders_javascript, method: "GET" })).body;
         if(!javascript) throw new Error("javascript is null");
 
         const ast = babel.parse(javascript);

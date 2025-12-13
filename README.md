@@ -19,7 +19,7 @@ const sec_ch_ua = "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A 
 //Check ./browser to create your own clientFetch (bogdan tls-client)
 //Leave blank if you want to use the default Chrome 142) e.g.. new CloudflareJSDSolver()
 const cloudflareJSDSolver = new CloudflareJSDSolver(clientFetch, clientInformation, sec_ch_ua);
-const cf_clearance = await cloudflareJSDSolver.generateCF_Clearance("https://example.com/path");
+const cf_clearance = await cloudflareJSDSolver.generateCF_Clearance("https://example.com/path", /* OPTIONAL main.js url if its custom*/);
 console.log(cf_clearance);// _xedK7.........
 ```
 
