@@ -1,9 +1,9 @@
 # Installation 
-`npm install`
+` npm i https://github.com/JonJon565/jsd-solver-nodejs`
 
 # Usage
 ```js
-const { CloudflareJSDSolver, clientFetch } = require("C:\\Users\\ivant\\Documents\\Github\\jsd-solver-nodejs\\index");
+const { CloudflareJSDSolver, clientFetch } = require("jsd-solver-nodejs");
 const clientInformation = {
   vendor: "Google Inc.",
   appCodeName: "Mozilla",
