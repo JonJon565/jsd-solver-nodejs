@@ -1,5 +1,7 @@
 # Installation 
-` npm i https://github.com/JonJon565/jsd-solver-nodejs`
+```bash
+npm i https://github.com/JonJon565/jsd-solver-nodejs
+```
 
 
 # Normal Usage
@@ -12,6 +14,10 @@ console.log(cf_clearance);// _xedK7.........
 
 # Custom Fetch Usage
 ```js
+
+//Check ./browser/ to create your own fetch handler (bogdan tls-client)
+//These are the hardcoded default paramaters.
+
 const { CloudflareJSDSolver, clientFetch } = require("jsd-solver-nodejs");
 const clientInformation = {
   vendor: "Google Inc.",
@@ -24,9 +30,7 @@ const clientInformation = {
   language: "en-GB"
 };
 const sec_ch_ua = "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\"";
-//These are the Default paramaters.
-//Check ./browser to create your own clientFetch (bogdan tls-client)
-//Leave blank if you want to use the default Chrome 142) e.g.. new CloudflareJSDSolver()
+
 const cloudflareJSDSolver = new CloudflareJSDSolver(clientFetch, clientInformation, sec_ch_ua);
 const cf_clearance = await cloudflareJSDSolver.generateCF_Clearance("https://example.com/path", /* OPTIONAL main.js url if its custom*/);
 console.log(cf_clearance);// _xedK7.........
